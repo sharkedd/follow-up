@@ -8,9 +8,13 @@ const RECIPIENTS = ['jcarrillo@follow-up.cl'];
 export class HealthcheckService {
   constructor(private readonly emailService: EmailService) {}
 
+  //URL De las páginas a monitorear
   private servicesToMonitor = [
-    { name: 'reportes-core', url: 'http://reportescore.follow-up.cl' },
+    { name: 'Reportes-core', url: 'http://reportescore.follow-up.cl' },
     { name: 'my-page', url: 'http://192.168.100.71:3000/' },
+    { name: 'Yeastar', url: 'https://190.196.221.42:8088/login' },
+    { name: 'Rich', url: 'http://rich.follow-up.cl/' },
+    { name: 'Orbyta', url: 'https://clientes.orbyta.com/' },
   ];
 
   async checkServices() {
@@ -30,7 +34,7 @@ export class HealthcheckService {
           subject: '🚨 ALERTA 🚨 ',
           html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; color: #333;">
             <h1 style="text-align: center; color: #d9534f; font-size: 24px; margin-bottom: 20px;">
-                🚨 ALERTA: PROBLEMAS CON EL SISTEMA <span style="text-transform: uppercase;">${service.name}</span>
+                ALERTA: PROBLEMAS CON EL SISTEMA <span style="text-transform: uppercase;">${service.name}</span>
             </h1>
             <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">
                 Estimado <strong>trabajador de Follow-up</strong>,
